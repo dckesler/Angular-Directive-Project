@@ -7,7 +7,6 @@ app.directive('dirDisplay', function(){
       setUser: '&'
     },
     link: function(scope, elem, attrs){
-      console.log(scope);
       elem.on('click', function(){
         scope.show = !scope.show;
         scope.setUser({user: scope.user});

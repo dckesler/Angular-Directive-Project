@@ -35,11 +35,9 @@ app.controller('homeCtrl', function($scope, weatherService){
     ];
     $scope.currentUser = $scope.users[0];
     $scope.getWeather = function(city){
-        console.log(city);
         return weatherService.getWeather(city)
     };
     $scope.setUser = function(user){
-        console.log(user);
         $scope.currentUser = user;
     };
 });

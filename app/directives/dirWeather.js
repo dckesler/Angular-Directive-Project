@@ -7,11 +7,13 @@ app.directive('dirWeather', function(){
         },
         templateUrl: 'app/directives/dirWeather.html',
         controller: function($scope){
-            $scope.weatherCall({city: $scope.currentUser.city}).then(function(data){
-                console.log(data);
-                $scope.weather = data.weather;
-                $scope.temp = data.temperature;
-            })
+            $scope.$watch('currentUser', function(){
+                $scope.weatherCall({city: $scope.currentUser.city}).then(function(data){
+                    $scope.weather = data.weather;
+                    $scope.temp = data.temperature;
+                })
+            });
+
         }
     }
 });

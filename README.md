@@ -256,7 +256,33 @@ the `currentUser`'s city. The properties can be named whatever makes sense to yo
  We need to step up a change listener on our `currentUser` in the `dirWeather` directive. We'll use angular's `$watch` functionality. `$watch` is a method on
  your `$scope` that will watch for changes in a variable you give it. It works in two ways.
  ```javascript
- 
+ $scope.$watch('property', function(value){
+   console.log("When $scope.property changes its new value is: ", value)
+ });
+ ```
+ And
+ ```javascript
+ $scope.$watch(function(){
+   return myVar
+ }, function(value){
+   console.log("When myVar changes its new value is: ", value);
+ });
  ```
  - Remove the immediate function call that we have in there now. Maybe just comment it out for now because we'll use it in a bit.
- - Now call a the `$watch` function.
+ - Now call the `$watch` method on your scope and have it watch currentUser. Either way of using `$watch` is fine.
+ - Have its callback run the `$scope.weatherCall` function just like you had it before.
+ 
+ *One thing to note is that `$scope.$watch` will always run once to begin with. Since that's what we want here it's great, but just be aware of that.*
+  
+ If you've reached this point congratulate yourself. You've messed with some serious stuff today, namely directives. There are still a lot of things about
+ directives that we can't possibly cover in a single project. If you like what we've done so far then you're in a good place to keep going. A developer
+ who understands directives well can build a really clean looking code base. Just look at your `home.html`. It could have just two lines in it. If you're feeling
+ good move on now to **Step 7**.
+ 
+ ##Step 7. Finishing touches
+ Try to work out these problems on your own.
+ 1. There should be a way to let the user know that the weather data is loading. Something that appears while our $http request is retrieving our data.
+ 2. The $http request shouldn't fire on both opening and closing a user's information.
+ 3. A color change for the currently active user would be nicer than showing that user's info inside the dirWeather modal. Or at least less redundant.
+ 4. Whatever else you want. We still haven't explored `transclusion` and `ng-transclude` so give that a try if you're feeling adventurous. Just know that
+ it's a way for deciding where to put the HTML child elements of a directive. It's cool stuff that can involve some criss-crossing of scopes.
