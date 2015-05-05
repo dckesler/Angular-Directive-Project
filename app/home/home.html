@@ -1,3 +1,3 @@
 <div>Home</div>
-<dir-weather current-user="users[0]" weather-call="getWeather(city)"></dir-weather>
-<dir-display ng-repeat="user in users"></dir-display>
+<dir-weather current-user="currentUser" weather-call="getWeather(city)"></dir-weather>
+<dir-display ng-repeat="user in users" set-user="setUser(user)" user="user"></dir-display>
