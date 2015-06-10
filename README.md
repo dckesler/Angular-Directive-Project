@@ -233,14 +233,14 @@ the `currentUser`'s city. The properties can be named whatever makes sense to yo
  
  Now you should have everything hooked up so it shows Geoff's data and the weather data for Provo. But is that good enough?
  
- ##Step 6. Ramping up our ramp up.
+##Step 6. Ramping up our ramp up.
  Now let's change this so it shows the weather data for whichever user we select. We're going to need to use `'&'` again.
- - Make a function on the `home` controller that takes in a parameter and sets a property on the `$scope` to be that current user. Maybe you see where this is going.
+ - Make a function on the `home` controller that takes in a parameter and sets a property on the `$scope` to be that parameter. Maybe you see where this is going.
  
  We want to get this function into our `dirDisplay` controller. But in order to do that we need to isolate `dirDisplay`'s scope. 
  This also means we need to pass in each individual user through the `scope` object as well.
  - To make it easier on ourselves, let's pass the current user from our `ng-repeat` into our directive through a `user` attribute. This way we can leave
- our two-way bindings as the same thing.
+ our two-way bindings as they are.
  - Also pass our new function that sets our current user from our `home` controller into our directive through a `setUser` attribute.
   - You'll need to add an argument in there again. Go with `user`.
  
